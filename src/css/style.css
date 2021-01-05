@@ -1,0 +1,264 @@
+.box-container{
+  display: flex;
+  align-items: flex-end;
+  flex-flow: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin: 0px 5px;
+    border:5px solid
+}
+
+.box p{
+  font-size: 32px;
+}
+
+.box img{
+  margin:none;
+  width: 395px;
+    height: 348px;
+}
+
+.box-container[data-shit="1"] .box:nth-child(1){
+  border-color: #4caf50;
+}
+
+.box-container[data-shit="1"] .box:nth-child(2){
+  border-color: #ff5722;
+}
+
+.box-container[data-shit="1"] .box:nth-child(3){
+border-color:#607d8b ;
+}
+
+.box-container[data-shit="2"] .box:nth-child(1){
+  border-color: #9c27b0;
+}
+
+.box-container[data-shit="2"] .box:nth-child(2){
+border-color: #009688;
+}
+
+.box-container[data-shit="2"] .box:nth-child(3){
+  border-color: #e91e63;
+}
+
+.box-container[data-shit="1"] .box:nth-child(1) .box-confused{
+  background-color:#4caf50ad ;
+}
+
+.box-container[data-shit="1"] .box:nth-child(2) .box-confused{
+  background-color:#ff5722ad ;
+}
+
+.box-container[data-shit="1"]  .box:nth-child(3) .box-confused{
+background-color:#607d8bad ;
+}
+
+.box-container[data-shit="2"]  .box:nth-child(1) .box-confused{
+ background-color: #9c27b0ad;
+}
+
+.box-container[data-shit="2"] .box:nth-child(2) .box-confused{
+background-color: #009688ad;
+}
+
+.box-container[data-shit="2"] .box:nth-child(3) .box-confused{
+ background-color: #e91e63ad;
+}
+
+.box-confused,.show-confused{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  place-content: space-evenly;
+  opacity : 0;
+  transition: all 0.5s ease;
+}
+
+.show-confused{
+  transition: none;
+  z-index:10000;
+}
+
+.show-confused:hover + .box-confused{
+  opacity: 1;
+}
+
+.graphics{
+  display: inline-flex !important;
+  width: 780px !important;
+  height:480px !important;
+}
+
+/*Slider card*/
+
+.card-container{
+position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.card-reflection p{
+font-size:32px !important;
+}
+
+.card-reflection p:last-child{
+  font-size:42px !important;
+  font-variant: all-small-caps !important;
+}
+
+.card-reflection{
+position: absolute;
+display: flex;
+flex-direction: column;
+top:0;
+bottom:0;
+margin:auto;
+width: 440px;
+height: 460px;
+align-content: center;
+align-items: center;
+background-color: #23242b;
+justify-content: center;
+border-radius: 15px;
+box-shadow: 0px 6px 11px 5px #14161d;
+transition:1s all ease;
+opacity: 0;
+z-index:0;
+}
+
+
+.card-reflection-left{
+  transform: rotateY(180deg);
+}
+
+.card-reflection-right{
+  transform: rotateY(-180deg);
+}
+.card-active{
+transform: rotateY(0deg); 
+opacity: 1;
+z-index:1000;
+}
+
+.card-reflection img{
+  width:140px;
+  height: 150px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.buttons-slide{
+  display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    z-index: 1000;
+  }
+
+.buttons-slide span{
+  font-size: 72px !important;
+  padding: 10px !important;
+  cursor: pointer;
+}
+
+/*SocialMedia*/
+.socialMedia{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin: 140px 0;
+    width: 100%;
+    height: 100%;
+      
+}
+
+.socialMedia img{
+  position: relative;
+  width: 72px;
+}
+
+.socialMedia-box{
+  position: relative;
+    cursor: pointer;
+  transition: 0.5s all ease;
+}
+
+.socialMedia-box:hover{
+    transform: translateY(-15px) scale(1.2);
+}
+
+.socialMedia-box:last-child::after{
+content: '';
+position: absolute;
+margin: auto;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+width: 69%;
+height: 48%;
+clip-path: circle(32px at 24px 24px);
+background-color: white;
+z-index: -1;
+}
+
+.tooltip{
+position: absolute;
+    top: -20px;
+    left: -14px;
+    margin: auto;
+    right: 0;
+    width: 80px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 100px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    opacity: 0;
+    visibility: collapse;
+
+    transition: 0.2s all ease;
+    z-index: 1;
+}
+
+.tooltip:after{
+  content:'';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top:15px;
+  left:0;
+  right:0;
+  margin:auto;
+  background-color: black;
+  transform: translateY(-20%) rotate(45deg);
+  z-index: -1;
+}
+
+.socialMedia-box:hover > .tooltip{
+  opacity: 1;
+  visibility: visible;
+}
